@@ -10,7 +10,7 @@ struct Game: Codable, Identifiable {
     
     enum CodingKeys: String, CodingKey {
         case id, name, rating, released, genres
-        case backgroundImage = "Background_image"
+        case backgroundImage = "background_image"
     }
 }
 

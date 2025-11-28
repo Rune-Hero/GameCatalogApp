@@ -2,13 +2,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            // Вкладка 1: Головна (список ігор)
+            GameListView()
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
+            
+            // Вкладка 2: Моя колекція
+            MyCollectionView()
+                .tabItem {
+                    Label("Collection", systemImage: "star.fill")
+                }
         }
-        .padding()
+        .accentColor(.blue) // Колір активної вкладки
     }
 }
 
