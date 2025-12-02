@@ -58,7 +58,7 @@ class NetworkService {
     }
     
     func fetchGameDetails(id: Int) async throws -> GameDetails {
-        let urlString = "\(APIConstants.baseURL)/games/\(id)key=\(APIConstants.apiKey)"
+        let urlString = "\(APIConstants.baseURL)/games/\(id)?key=\(APIConstants.apiKey)"
         
         guard let url = URL(string: urlString) else {
             throw NetworkError.invalidURL

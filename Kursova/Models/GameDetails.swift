@@ -1,7 +1,5 @@
 import Foundation
 
-import Foundation
-
 struct GameDetails: Codable, Identifiable {
     let id: Int
     let name: String

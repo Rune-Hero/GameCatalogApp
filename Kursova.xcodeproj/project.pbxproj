@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231685852EDED1020067BCCE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231685842EDED1020067BCCE /* SearchView.swift */; };
 		239325372EC70F7C007C84F4 /* KursovaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325362EC70F7C007C84F4 /* KursovaApp.swift */; };
 		239325392EC70F7C007C84F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325382EC70F7C007C84F4 /* ContentView.swift */; };
 		2393253B2EC70F7E007C84F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2393253A2EC70F7E007C84F4 /* Assets.xcassets */; };
@@ -22,7 +23,6 @@
 		239325592EC71213007C84F4 /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325582EC71213007C84F4 /* GameDetailView.swift */; };
 		2393255B2EC71238007C84F4 /* MyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393255A2EC71238007C84F4 /* MyCollectionView.swift */; };
 		2393255E2EC71263007C84F4 /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393255D2EC71263007C84F4 /* GameCardView.swift */; };
-		239325602EC71273007C84F4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393255F2EC71273007C84F4 /* SearchBar.swift */; };
 		239325622EC71289007C84F4 /* GenreFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325612EC71289007C84F4 /* GenreFilterView.swift */; };
 		239325642EC71298007C84F4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325632EC71298007C84F4 /* RatingView.swift */; };
 		239325662EC712A5007C84F4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325652EC712A5007C84F4 /* LoadingView.swift */; };
@@ -36,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		231685842EDED1020067BCCE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		239325332EC70F7C007C84F4 /* Kursova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kursova.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239325362EC70F7C007C84F4 /* KursovaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KursovaApp.swift; sourceTree = "<group>"; };
 		239325382EC70F7C007C84F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		239325582EC71213007C84F4 /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 		2393255A2EC71238007C84F4 /* MyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionView.swift; sourceTree = "<group>"; };
 		2393255D2EC71263007C84F4 /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardView.swift; sourceTree = "<group>"; };
-		2393255F2EC71273007C84F4 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		239325612EC71289007C84F4 /* GenreFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFilterView.swift; sourceTree = "<group>"; };
 		239325632EC71298007C84F4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		239325652EC712A5007C84F4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -143,6 +143,7 @@
 				239325562EC711F5007C84F4 /* GameListView.swift */,
 				239325582EC71213007C84F4 /* GameDetailView.swift */,
 				2393255A2EC71238007C84F4 /* MyCollectionView.swift */,
+				231685842EDED1020067BCCE /* SearchView.swift */,
 				2393255C2EC71241007C84F4 /* Components */,
 			);
 			path = Views;
@@ -152,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				2393255D2EC71263007C84F4 /* GameCardView.swift */,
-				2393255F2EC71273007C84F4 /* SearchBar.swift */,
 				239325612EC71289007C84F4 /* GenreFilterView.swift */,
 				239325632EC71298007C84F4 /* RatingView.swift */,
 				239325652EC712A5007C84F4 /* LoadingView.swift */,
@@ -263,9 +263,9 @@
 				239325682EC712B4007C84F4 /* ErrorView.swift in Sources */,
 				239325392EC70F7C007C84F4 /* ContentView.swift in Sources */,
 				239325462EC71023007C84F4 /* Game.swift in Sources */,
-				239325602EC71273007C84F4 /* SearchBar.swift in Sources */,
 				239325372EC70F7C007C84F4 /* KursovaApp.swift in Sources */,
 				239325522EC71116007C84F4 /* GameDetailViewModel.swift in Sources */,
+				231685852EDED1020067BCCE /* SearchView.swift in Sources */,
 				2393256E2EC71665007C84F4 /* LocalStorageService.swift in Sources */,
 				239325642EC71298007C84F4 /* RatingView.swift in Sources */,
 				239325702EC71673007C84F4 /* PhotoLibraryService.swift in Sources */,

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct GameCardView: View {
     let game: Game
+    let imageWidth: CGFloat  // ← новий параметр
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -14,7 +15,7 @@ struct GameCardView: View {
                 .lineLimit(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            // Фото
+            // Фото гри
             AsyncImage(url: safeImageURL) { phase in
                 switch phase {
                 case .empty:
@@ -23,14 +24,13 @@ struct GameCardView: View {
                             .fill(Color.gray.opacity(0.25))
                         ProgressView()
                     }
-                    .frame(height: 180)
+                    .frame(width: imageWidth, height: 180)  // ← динамічна ширина
 
                 case .success(let image):
                     image
                         .resizable()
                         .scaledToFill()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 180)
+                        .frame(width: imageWidth, height: 180)  // ← динамічна ширина
                         .clipped()
                         .cornerRadius(10)
 
@@ -47,13 +47,13 @@ struct GameCardView: View {
                                 .foregroundColor(.gray)
                         }
                     }
-                    .frame(height: 180)
+                    .frame(width: imageWidth, height: 180)  // ← динамічна ширина
 
                 @unknown default:
                     EmptyView()
                 }
             }
-            
+
             // Рейтинг + дата релізу
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 4) {
@@ -74,7 +74,6 @@ struct GameCardView: View {
             }
         }
         .padding(12)
-        .frame(maxWidth: .infinity) // 🔑 обмежує ширину картки під колонку LazyVGrid
         .background(
             RoundedRectangle(cornerRadius: 14)
                 .fill(Color(.systemBackground))
@@ -82,9 +81,10 @@ struct GameCardView: View {
         .shadow(color: Color.black.opacity(0.08), radius: 4, x: 0, y: 2)
     }
     
-    // Конвертація http -> https
+    // http → https
     var safeImageURL: URL? {
         guard let img = game.backgroundImage else { return nil }
         return URL(string: img.replacingOccurrences(of: "http://", with: "https://"))
     }
 }
+

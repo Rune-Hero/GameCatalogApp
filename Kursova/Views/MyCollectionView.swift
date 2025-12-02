@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct MyCollectionView: View {
+    @State private var showSearch = false
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -23,38 +25,22 @@ struct MyCollectionView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
                 
-                // Кнопка (опціонально)
-                Button(action: {
-                    // TODO: Перемкнутись на вкладку Home
-                    print("Browse Games tapped")
-                }) {
-                    Text("Browse Games")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(width: 200, height: 50)
-                        .background(Color.blue)
-                        .cornerRadius(12)
-                }
-                .padding(.top, 20)
-                
                 Spacer()
             }
             .navigationTitle("My Collection")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        // TODO: Пошук в колекції
-                        print("Search in collection")
+                        showSearch = true
                     }) {
                         Image(systemName: "magnifyingglass")
                             .font(.system(size: 18))
                     }
                 }
             }
+            .sheet(isPresented: $showSearch) {
+                SearchView()
+            }
         }
     }
-}
-
-#Preview {
-    MyCollectionView()
 }
