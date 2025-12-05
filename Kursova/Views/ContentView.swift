@@ -18,7 +18,3 @@ struct ContentView: View {
         .accentColor(.blue) // Колір активної вкладки
     }
 }
-
-#Preview {
-    ContentView()
-}

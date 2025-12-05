@@ -25,17 +25,22 @@ extension String {
 
 // MARK: - GameDetailView
 struct GameDetailView: View {
+    // 1. Отримуємо LocalStorageService через оточення
+    @EnvironmentObject var localStorageService: LocalStorageService
+    
     let gameId: Int
     @StateObject private var viewModel: GameDetailViewModel
     
-    // Ініціалізатор
+    // Ініціалізатор - залишаємо без змін, оскільки VM тепер не вимагає сервісу в init
     init(gameId: Int) {
         self.gameId = gameId
+        // VM тепер ініціалізується без LocalStorageService
         _viewModel = StateObject(wrappedValue: GameDetailViewModel(gameId: gameId))
     }
     
     var body: some View {
         GeometryReader { geometry in
+            // ... (Ваш існуючий код тіла до .navigationTitle)
             let screenWidth = geometry.size.width
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
@@ -104,7 +109,6 @@ struct GameDetailView: View {
                             
                             // Жанри
                             if let genres = game.genres, !genres.isEmpty {
-                                // ДОДАНО ЗАГОЛОВОК
                                 Text("Жанри")
                                     .font(.headline)
                                     .padding(.top, 8)
@@ -121,9 +125,9 @@ struct GameDetailView: View {
                                     }
                                 }
                             }
+                            
                             // Платформи
                             if let platforms = game.platforms, !platforms.isEmpty {
-                                // ДОДАНО ЗАГОЛОВОК
                                 Text("Платформи")
                                     .font(.headline)
                                     .padding(.top, 8)
@@ -145,16 +149,52 @@ struct GameDetailView: View {
                     }
                 }
             }
+            // Кінець вашого існуючого коду тіла
         }
         .navigationTitle("Game Detail")
         .navigationBarTitleDisplayMode(.inline)
+        // ДОДАНО TOOLBAR
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                // Кнопку показуємо тільки після завантаження даних
+                if viewModel.gameDetails != nil {
+                    CollectionButton(viewModel: viewModel)
+                }
+            }
+        }
         .task {
+            // 1. Завантажуємо деталі
             await viewModel.fetchGameDetails()
+            // 2. Налаштовуємо трекінг колекції, використовуючи @EnvironmentObject
+            viewModel.setupCollectionTracking(with: localStorageService)
         }
     }
-    
     private func safeURL(for string: String?) -> URL? {
         guard let string = string else { return nil }
         return URL(string: string.replacingOccurrences(of: "http://", with: "https://"))
+    }
+}
+
+struct CollectionButton: View {
+    @ObservedObject var viewModel: GameDetailViewModel
+    @EnvironmentObject var localStorageService: LocalStorageService // Отримуємо сервіс для виконання дії
+    
+    var body: some View {
+        Button(action: {
+            // Викликаємо функцію з ViewModel, передаючи сервіс для виконання операції
+            viewModel.toggleCollectionStatus(in: localStorageService)
+        }) {
+            HStack(spacing: 4) {
+                Image(systemName: viewModel.isInCollection ? "star.fill" : "star")
+                Text(viewModel.isInCollection ? "У колекції" : "Додати")
+            }
+            .font(.subheadline)
+            .padding(EdgeInsets(top: 6, leading: 10, bottom: 6, trailing: 10))
+            .background(viewModel.isInCollection ? Color.blue.opacity(0.8) : Color.gray.opacity(0.2))
+            .foregroundColor(viewModel.isInCollection ? .white : .primary)
+            .cornerRadius(8)
+        }
+        // Використовуємо style для вигляду як звичайна кнопка, а не NavigationLink
+        .buttonStyle(.plain)
     }
 }

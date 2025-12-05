@@ -12,12 +12,17 @@ class NetworkService {
     
     private init() {}
     
-    func fetchGames(searchQuery: String? = nil, page: Int = 1) async throws -> [Game] {
+    func fetchGames(searchQuery: String? = nil, genre: String? = nil, page: Int = 1) async throws -> [Game] {
         //створення запиту
         var urlString = "\(APIConstants.baseURL)/games?key=\(APIConstants.apiKey)&page=\(page)"
         if let querry = searchQuery, !querry.isEmpty {
             urlString += "&search=\(querry)"
         }
+        // для фільтрації за жанром
+        if let genre = genre, !genre.isEmpty {
+                urlString += "&genres=\(genre)"
+            }
+        
         guard let url = URL(string: urlString) else {
             throw NetworkError.invalidURL
         }
