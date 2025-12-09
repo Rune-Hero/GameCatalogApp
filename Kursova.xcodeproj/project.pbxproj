@@ -23,16 +23,12 @@
 		239325592EC71213007C84F4 /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325582EC71213007C84F4 /* GameDetailView.swift */; };
 		2393255B2EC71238007C84F4 /* MyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393255A2EC71238007C84F4 /* MyCollectionView.swift */; };
 		2393255E2EC71263007C84F4 /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393255D2EC71263007C84F4 /* GameCardView.swift */; };
-		239325622EC71289007C84F4 /* GenreFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325612EC71289007C84F4 /* GenreFilterView.swift */; };
-		239325642EC71298007C84F4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325632EC71298007C84F4 /* RatingView.swift */; };
 		239325662EC712A5007C84F4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325652EC712A5007C84F4 /* LoadingView.swift */; };
 		239325682EC712B4007C84F4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325672EC712B4007C84F4 /* ErrorView.swift */; };
 		2393256C2EC71658007C84F4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393256B2EC71658007C84F4 /* NetworkService.swift */; };
 		2393256E2EC71665007C84F4 /* LocalStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393256D2EC71665007C84F4 /* LocalStorageService.swift */; };
 		239325702EC71673007C84F4 /* PhotoLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393256F2EC71673007C84F4 /* PhotoLibraryService.swift */; };
 		239325732EC716DC007C84F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325722EC716DC007C84F4 /* Constants.swift */; };
-		239325752EC716E7007C84F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325742EC716E7007C84F4 /* Extensions.swift */; };
-		239325772EC716F2007C84F4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325762EC716F2007C84F4 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,16 +49,12 @@
 		239325582EC71213007C84F4 /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 		2393255A2EC71238007C84F4 /* MyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionView.swift; sourceTree = "<group>"; };
 		2393255D2EC71263007C84F4 /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardView.swift; sourceTree = "<group>"; };
-		239325612EC71289007C84F4 /* GenreFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFilterView.swift; sourceTree = "<group>"; };
-		239325632EC71298007C84F4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		239325652EC712A5007C84F4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		239325672EC712B4007C84F4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		2393256B2EC71658007C84F4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2393256D2EC71665007C84F4 /* LocalStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageService.swift; sourceTree = "<group>"; };
 		2393256F2EC71673007C84F4 /* PhotoLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryService.swift; sourceTree = "<group>"; };
 		239325722EC716DC007C84F4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		239325742EC716E7007C84F4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		239325762EC716F2007C84F4 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				2393255D2EC71263007C84F4 /* GameCardView.swift */,
-				239325612EC71289007C84F4 /* GenreFilterView.swift */,
-				239325632EC71298007C84F4 /* RatingView.swift */,
 				239325652EC712A5007C84F4 /* LoadingView.swift */,
 				239325672EC712B4007C84F4 /* ErrorView.swift */,
 			);
@@ -175,8 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				239325722EC716DC007C84F4 /* Constants.swift */,
-				239325742EC716E7007C84F4 /* Extensions.swift */,
-				239325762EC716F2007C84F4 /* ImageCache.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -251,8 +239,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				239325752EC716E7007C84F4 /* Extensions.swift in Sources */,
-				239325622EC71289007C84F4 /* GenreFilterView.swift in Sources */,
 				239325732EC716DC007C84F4 /* Constants.swift in Sources */,
 				239325572EC711F5007C84F4 /* GameListView.swift in Sources */,
 				239325502EC710F8007C84F4 /* GameListViewModel.swift in Sources */,
@@ -267,9 +253,7 @@
 				239325522EC71116007C84F4 /* GameDetailViewModel.swift in Sources */,
 				231685852EDED1020067BCCE /* SearchView.swift in Sources */,
 				2393256E2EC71665007C84F4 /* LocalStorageService.swift in Sources */,
-				239325642EC71298007C84F4 /* RatingView.swift in Sources */,
 				239325702EC71673007C84F4 /* PhotoLibraryService.swift in Sources */,
-				239325772EC716F2007C84F4 /* ImageCache.swift in Sources */,
 				2393254A2EC71055007C84F4 /* Genre.swift in Sources */,
 				2393256C2EC71658007C84F4 /* NetworkService.swift in Sources */,
 				239325542EC7113E007C84F4 /* MyCollectionViewModel.swift in Sources */,
@@ -410,6 +394,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Kursova/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to save game images to your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -438,6 +423,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Kursova/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to save game images to your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

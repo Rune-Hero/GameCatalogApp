@@ -59,7 +59,3 @@ class LocalStorageService: ObservableObject {
         return collection.contains(where: { $0.id == gameId })
     }
 }
-
-// Примітка: Для роботи LocalStorageService вам необхідно переконатися, що ваш модельний
-// об'єкт GameDetails відповідає протоколам Codable та Identifiable.
-// наприклад: struct GameDetails: Codable, Identifiable { ... }
