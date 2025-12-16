@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230D75DD2EF1449F00B93FE3 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D75DC2EF1449F00B93FE3 /* AppTheme.swift */; };
 		231685852EDED1020067BCCE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231685842EDED1020067BCCE /* SearchView.swift */; };
 		239325372EC70F7C007C84F4 /* KursovaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325362EC70F7C007C84F4 /* KursovaApp.swift */; };
 		239325392EC70F7C007C84F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325382EC70F7C007C84F4 /* ContentView.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		230D75DC2EF1449F00B93FE3 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		231685842EDED1020067BCCE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		239325332EC70F7C007C84F4 /* Kursova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kursova.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239325362EC70F7C007C84F4 /* KursovaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KursovaApp.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				239325722EC716DC007C84F4 /* Constants.swift */,
+				230D75DC2EF1449F00B93FE3 /* AppTheme.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				239325482EC7103F007C84F4 /* GameDetails.swift in Sources */,
 				239325682EC712B4007C84F4 /* ErrorView.swift in Sources */,
 				239325392EC70F7C007C84F4 /* ContentView.swift in Sources */,
+				230D75DD2EF1449F00B93FE3 /* AppTheme.swift in Sources */,
 				239325462EC71023007C84F4 /* Game.swift in Sources */,
 				239325372EC70F7C007C84F4 /* KursovaApp.swift in Sources */,
 				239325522EC71116007C84F4 /* GameDetailViewModel.swift in Sources */,

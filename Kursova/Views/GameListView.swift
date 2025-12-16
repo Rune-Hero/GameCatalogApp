@@ -8,14 +8,10 @@ struct GameListView: View {
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
-                let screenWidth = geometry.size.width
-                let spacing: CGFloat = 12
-                let padding: CGFloat = 16
-                let cardWidth = (screenWidth - (padding * 2) - spacing) / 2
-                let imageWidth = cardWidth - 24
+                let dimensions = UIConstants.calculateCardDimensions(screenWidth: geometry.size.width)
                 
                 let columns = [
-                    GridItem(.adaptive(minimum: cardWidth), spacing: spacing)
+                    GridItem(.adaptive(minimum: dimensions.cardWidth), spacing: UIConstants.gridSpacing)
                 ]
                 
                 VStack(spacing: 0) {
@@ -37,7 +33,7 @@ struct GameListView: View {
                                     .padding(.vertical, 8)
                                     .background(Color.red.opacity(0.8))
                                     .foregroundColor(.white)
-                                    .cornerRadius(20)
+                                    .cornerRadius(UIConstants.buttonCornerRadius)
                                 }
                             }
                             
@@ -61,11 +57,11 @@ struct GameListView: View {
                                     .padding(.vertical, 8)
                                     .background(viewModel.selectedGenres.contains(genre) ? Color.blue : Color(.systemGray5))
                                     .foregroundColor(viewModel.selectedGenres.contains(genre) ? .white : .primary)
-                                    .cornerRadius(20)
+                                    .cornerRadius(UIConstants.buttonCornerRadius)
                                 }
                             }
                         }
-                        .padding(.horizontal, 16)
+                        .padding(.horizontal, UIConstants.gridPadding)
                         .padding(.vertical, 8)
                     }
                     .background(Color(.systemBackground))
@@ -77,7 +73,7 @@ struct GameListView: View {
                                 .foregroundColor(.secondary)
                             Spacer()
                         }
-                        .padding(.horizontal, 16)
+                        .padding(.horizontal, UIConstants.gridPadding)
                         .padding(.bottom, 4)
                     }
                     
@@ -88,7 +84,7 @@ struct GameListView: View {
                             LazyVGrid(columns: columns, spacing: 16) {
                                 ForEach(viewModel.games) { game in
                                     NavigationLink(destination: GameDetailView(gameId: game.id)) {
-                                        GameCardView(game: game, imageWidth: imageWidth)
+                                        GameCardView(game: game, imageWidth: dimensions.imageWidth)
                                     }
                                     .buttonStyle(CardButtonStyle())
                                     .onAppear {
@@ -98,7 +94,7 @@ struct GameListView: View {
                                     }
                                 }
                             }
-                            .padding(.horizontal, padding)
+                            .padding(.horizontal, UIConstants.gridPadding)
                             .padding(.top, 8)
                             .padding(.bottom, 20)
                         }

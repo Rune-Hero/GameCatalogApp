@@ -8,17 +8,12 @@ struct MyCollectionView: View {
     var body: some View {
         NavigationView {
             Group {
-                // Перевірка: якщо колекція порожня, показуємо заглушку
                 if localStorageService.collection.isEmpty {
                     EmptyCollectionPlaceholder()
                 } else {
-                    // Якщо колекція не порожня, показуємо список
                     List {
                         ForEach(localStorageService.collection) { game in
-                            
-                            // 👇 ОНОВЛЕНО: Використовуємо NavigationLink
                             NavigationLink(destination: GameDetailView(gameId: game.id)) {
-                                // Ваш існуючий вміст рядка
                                 VStack(alignment: .leading) {
                                     Text(game.name)
                                         .font(.headline)
@@ -27,7 +22,6 @@ struct MyCollectionView: View {
                                         .foregroundColor(.gray)
                                 }
                             }
-                            // Додавання можливості видалення свайпом
                             .swipeActions {
                                 Button(role: .destructive) {
                                     localStorageService.removeGame(gameId: game.id)
@@ -56,7 +50,6 @@ struct MyCollectionView: View {
         }
     }
     
-    // Виносимо заглушку в окрему View
     private struct EmptyCollectionPlaceholder: View {
         var body: some View {
             VStack(spacing: 20) {

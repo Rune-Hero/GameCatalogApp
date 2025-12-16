@@ -8,14 +8,11 @@ class GameDetailViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     
-    // Стан колекції
     @Published var isInCollection: Bool = false
     
-    // Стан збереження фото
     @Published var showSaveAlert = false
     @Published var saveAlertMessage = ""
     
-    // Алерт для "Відкрити налаштування"
     @Published var showOpenSettingsAlert = false
     
     private let gameId: Int

@@ -6,24 +6,22 @@ struct ErrorView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            // Іконка помилки
             Image(systemName: "exclamationmark.triangle.fill")
                 .font(.system(size: 60))
-                .foregroundColor(.red)
+                .foregroundColor(AppTheme.danger)
             
-            // Заголовок
             Text("Oops!")
                 .font(.title)
                 .fontWeight(.bold)
+                .foregroundColor(AppTheme.primaryText)
+
             
-            // Текст помилки
             Text(message)
                 .font(.body)
-                .foregroundColor(.secondary)
+                .foregroundColor(AppTheme.secondaryText)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40)
             
-            // Кнопка "Спробувати знову"
             Button(action: retryAction) {
                 Text("Try Again")
                     .font(.headline)
@@ -34,12 +32,7 @@ struct ErrorView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.systemBackground))
+        .background(AppTheme.background)
     }
 }
 
-#Preview {
-    ErrorView(message: "Failed to load games. Please check your internet connection.") {
-        print("Retry tapped")
-    }
-}

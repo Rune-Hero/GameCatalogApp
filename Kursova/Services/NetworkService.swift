@@ -13,12 +13,10 @@ class NetworkService {
     private init() {}
     
     func fetchGames(searchQuery: String? = nil, genre: String? = nil, page: Int = 1) async throws -> [Game] {
-        //створення запиту
         var urlString = "\(APIConstants.baseURL)/games?key=\(APIConstants.apiKey)&page=\(page)"
         if let querry = searchQuery, !querry.isEmpty {
             urlString += "&search=\(querry)"
         }
-        // для фільтрації за жанром
         if let genre = genre, !genre.isEmpty {
                 urlString += "&genres=\(genre)"
             }
@@ -27,10 +25,8 @@ class NetworkService {
             throw NetworkError.invalidURL
         }
         
-        //початок виконання запиту
         let (data, response) = try await URLSession.shared.data(from: url)
         
-        //перевірка статусу
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.serverError("No response from the server")
         }
@@ -51,7 +47,6 @@ class NetworkService {
                 throw NetworkError.serverError("Unknown error: \(httpResponse.statusCode)")
 
         }
-        //перетворення в JSON
         do {
             let gameResponse = try JSONDecoder().decode(GamesResponse.self, from: data)
             return gameResponse.results

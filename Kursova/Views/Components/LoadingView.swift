@@ -6,7 +6,6 @@ struct LoadingView: View {
             Color.black.opacity(0.3)
                 .ignoresSafeArea()
             
-            // Білий контейнер з індикатором
             VStack(spacing: 16) {
                 ProgressView()
                     .scaleEffect(1.5)
@@ -14,7 +13,7 @@ struct LoadingView: View {
                 
                 Text("Loading games...")
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundColor(AppTheme.primaryText)
             }
             .padding(30)
             .background(

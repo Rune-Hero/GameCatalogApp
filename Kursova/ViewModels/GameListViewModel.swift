@@ -51,16 +51,15 @@ class GameListViewModel: ObservableObject {
             }
             
             canLoadMore = !fetchedGames.isEmpty
-            print("✅ Завантажено \(fetchedGames.count) ігор (всього: \(games.count))")
+            print("Loaded \(fetchedGames.count) games (total: \(games.count))")
             
-            // Застосовуємо сортування ПІСЛЯ завантаження (якщо не Default)
             if sortOption != .none {
                 applySort()
             }
             
         } catch {
             errorMessage = "Failed to load games. Please try again."
-            print("❌ Помилка: \(error)")
+            print("Error: \(error)")
         }
         
         isLoading = false
@@ -69,7 +68,6 @@ class GameListViewModel: ObservableObject {
     func applySort() {
         switch sortOption {
         case .none:
-            // Не сортуємо
             break
             
         case .nameAsc:
@@ -95,22 +93,19 @@ class GameListViewModel: ObservableObject {
             }
         }
         
-        print("🔄 Застосовано сортування: \(sortOption.rawValue)")
+        print("Sorting applied: \(sortOption.rawValue)")
     }
     
-    // ВИПРАВЛЕНО: Функція зміни сортування
     func changeSortOption(to option: SortOption) async {
         sortOption = option
         
         if option == .none {
-            // Якщо Default - перезавантажуємо дані з API
-            print("🔄 Скидання сортування - перезавантаження з API")
+            print("Drop sorting - reloading API")
             currentPage = 1
             canLoadMore = true
             games = []
             await fetchGames()
         } else {
-            // Інакше просто сортуємо існуючий список
             applySort()
         }
     }
@@ -129,7 +124,7 @@ class GameListViewModel: ObservableObject {
             selectedGenres.insert(genre)
         }
         
-        print("🎮 Selected genres: \(selectedGenres)")
+        print("Selected genres: \(selectedGenres)")
         
         currentPage = 1
         canLoadMore = true

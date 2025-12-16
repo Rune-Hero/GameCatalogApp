@@ -148,14 +148,12 @@ struct GameDetailView: View {
             }
         }
         
-        // Простий алерт (успіх/помилка)
         .alert("Photo Library", isPresented: $viewModel.showSaveAlert) {
             Button("OK", role: .cancel) {}
         } message: {
             Text(viewModel.saveAlertMessage)
         }
         
-        // Алерт із кнопкою відкриття налаштувань
         .alert("access required", isPresented: $viewModel.showOpenSettingsAlert) {
             Button("Open settings") {
                 if let url = URL(string: UIApplication.openSettingsURLString) {
