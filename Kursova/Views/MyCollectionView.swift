@@ -32,7 +32,7 @@ struct MyCollectionView: View {
                                 Button(role: .destructive) {
                                     localStorageService.removeGame(gameId: game.id)
                                 } label: {
-                                    Label("Видалити", systemImage: "trash.fill")
+                                    Label("Delete", systemImage: "trash.fill")
                                 }
                             }
                         }

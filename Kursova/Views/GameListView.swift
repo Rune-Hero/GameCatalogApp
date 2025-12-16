@@ -19,40 +19,49 @@ struct GameListView: View {
                 ]
                 
                 VStack(spacing: 0) {
-                    // Горизонтальний список жанрів
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 8) {
-                            // Кнопка "All" (скинути фільтр)
-                            Button(action: {
-                                Task {
-                                    await viewModel.filterByGenre(genre: nil)
-                                }
-                            }) {
-                                Text("All")
+                            if !viewModel.selectedGenres.isEmpty {
+                                Button(action: {
+                                    Task {
+                                        await viewModel.clearGenres()
+                                    }
+                                }) {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "xmark.circle.fill")
+                                        Text("Clear")
+                                    }
                                     .font(.subheadline)
-                                    .fontWeight(viewModel.selectedGenre == nil ? .bold : .regular)
-                                    .padding(.horizontal, 16)
+                                    .fontWeight(.bold)
+                                    .padding(.horizontal, 12)
                                     .padding(.vertical, 8)
-                                    .background(viewModel.selectedGenre == nil ? Color.blue : Color(.systemGray5))
-                                    .foregroundColor(viewModel.selectedGenre == nil ? .white : .primary)
+                                    .background(Color.red.opacity(0.8))
+                                    .foregroundColor(.white)
                                     .cornerRadius(20)
+                                }
                             }
                             
-                            // Жанри
                             ForEach(viewModel.availableGenres, id: \.self) { genre in
                                 Button(action: {
                                     Task {
-                                        await viewModel.filterByGenre(genre: genre)
+                                        await viewModel.toggleGenre(genre)
                                     }
                                 }) {
-                                    Text(genre.capitalized)
-                                        .font(.subheadline)
-                                        .fontWeight(viewModel.selectedGenre == genre ? .bold : .regular)
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 8)
-                                        .background(viewModel.selectedGenre == genre ? Color.blue : Color(.systemGray5))
-                                        .foregroundColor(viewModel.selectedGenre == genre ? .white : .primary)
-                                        .cornerRadius(20)
+                                    HStack(spacing: 4) {
+                                        Text(genre.capitalized)
+                                        
+                                        if viewModel.selectedGenres.contains(genre) {
+                                            Image(systemName: "checkmark.circle.fill")
+                                                .font(.caption)
+                                        }
+                                    }
+                                    .font(.subheadline)
+                                    .fontWeight(viewModel.selectedGenres.contains(genre) ? .bold : .regular)
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 8)
+                                    .background(viewModel.selectedGenres.contains(genre) ? Color.blue : Color(.systemGray5))
+                                    .foregroundColor(viewModel.selectedGenres.contains(genre) ? .white : .primary)
+                                    .cornerRadius(20)
                                 }
                             }
                         }
@@ -61,9 +70,19 @@ struct GameListView: View {
                     }
                     .background(Color(.systemBackground))
                     
+                    if !viewModel.selectedGenres.isEmpty {
+                        HStack {
+                            Text("\(viewModel.selectedGenres.count) genre(s) selected")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            Spacer()
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 4)
+                    }
+                    
                     Divider()
                     
-                    // Список ігор
                     ZStack {
                         ScrollView {
                             LazyVGrid(columns: columns, spacing: 16) {
@@ -97,9 +116,35 @@ struct GameListView: View {
                     }
                 }
             }
-            .navigationTitle("Games")
-            .navigationBarTitleDisplayMode(.large)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Menu {
+                        ForEach(SortOption.allCases, id: \.self) { option in
+                            Button(action: {
+                                Task {
+                                    await viewModel.changeSortOption(to: option)
+                                }
+                            }) {
+                                HStack {
+                                    Text(option.rawValue)
+                                    if viewModel.sortOption == option {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "arrow.up.arrow.down")
+                            if viewModel.sortOption != .none {
+                                Image(systemName: "circle.fill")
+                                    .font(.system(size: 8))
+                                    .foregroundColor(.blue)
+                            }
+                        }
+                    }
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         showSearch = true
@@ -128,3 +173,4 @@ struct CardButtonStyle: ButtonStyle {
             .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
     }
 }
+

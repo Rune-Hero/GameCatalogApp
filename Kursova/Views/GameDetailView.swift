@@ -103,7 +103,7 @@ struct GameDetailView: View {
                             }
                             
                             if let genres = game.genres, !genres.isEmpty {
-                                Text("Жанри").font(.headline)
+                                Text("Genres").font(.headline)
                                 
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack(spacing: 8) {
@@ -119,7 +119,7 @@ struct GameDetailView: View {
                             }
                             
                             if let platforms = game.platforms, !platforms.isEmpty {
-                                Text("Платформи").font(.headline)
+                                Text("Platforms").font(.headline)
                                 
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack(spacing: 8) {
@@ -156,8 +156,8 @@ struct GameDetailView: View {
         }
         
         // Алерт із кнопкою відкриття налаштувань
-        .alert("Потрібен доступ", isPresented: $viewModel.showOpenSettingsAlert) {
-            Button("Відкрити налаштування") {
+        .alert("access required", isPresented: $viewModel.showOpenSettingsAlert) {
+            Button("Open settings") {
                 if let url = URL(string: UIApplication.openSettingsURLString) {
                     UIApplication.shared.open(url)
                 }
@@ -190,7 +190,6 @@ struct CollectionButton: View {
         } label: {
             HStack {
                 Image(systemName: viewModel.isInCollection ? "star.fill" : "star")
-                Text(viewModel.isInCollection ? "У колекції" : "Додати")
             }
             .padding(6)
             .background(viewModel.isInCollection ? Color.blue.opacity(0.8) : Color.gray.opacity(0.2))

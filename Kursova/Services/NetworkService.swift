@@ -22,7 +22,7 @@ class NetworkService {
         if let genre = genre, !genre.isEmpty {
                 urlString += "&genres=\(genre)"
             }
-        
+                
         guard let url = URL(string: urlString) else {
             throw NetworkError.invalidURL
         }
@@ -32,23 +32,23 @@ class NetworkService {
         
         //перевірка статусу
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.serverError("Не має відповіді від сервера")
+            throw NetworkError.serverError("No response from the server")
         }
             switch httpResponse.statusCode {
             case 200:
                 break
             case 400:
-                throw NetworkError.serverError("Неправильний або недійсний запит від клієнта (400)")
+                throw NetworkError.serverError("Incorrect or invalid request from the client (400)")
             case 401:
-                throw NetworkError.serverError("Необхідна автентифікація для доступу до ресурсу (401)")
+                throw NetworkError.serverError("Authentication required to access the resource (401)")
             case 403:
-                throw NetworkError.serverError("Сервер відмовляється виконати запит (заборонено) (403)")
+                throw NetworkError.serverError("The server refuses to fulfill the request (forbidden) (403)")
             case 404:
-                throw NetworkError.serverError("Сервер не може знайти запитуваний ресурс або документ (404)")
+                throw NetworkError.serverError("The server cannot find the requested resource or document (404)")
             case 500:
-                throw NetworkError.serverError("Внутрішня помилка сервера (500)")
+                throw NetworkError.serverError("Internal server error (500)")
             default:
-                throw NetworkError.serverError("Невідома помилка: \(httpResponse.statusCode)")
+                throw NetworkError.serverError("Unknown error: \(httpResponse.statusCode)")
 
         }
         //перетворення в JSON
@@ -72,23 +72,23 @@ class NetworkService {
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.serverError("Не має відповіді від сервера")
+            throw NetworkError.serverError("No response from the server")
         }
             switch httpResponse.statusCode {
             case 200:
                 break
             case 400:
-                throw NetworkError.serverError("Неправильний або недійсний запит від клієнта (400)")
+                throw NetworkError.serverError("Incorrect or invalid request from the client (400)")
             case 401:
-                throw NetworkError.serverError("Необхідна автентифікація для доступу до ресурсу (401)")
+                throw NetworkError.serverError("Authentication required to access the resource (401)")
             case 403:
-                throw NetworkError.serverError("Сервер відмовляється виконати запит (заборонено) (403)")
+                throw NetworkError.serverError("The server refuses to fulfill the request (forbidden) (403)")
             case 404:
-                throw NetworkError.serverError("Сервер не може знайти запитуваний ресурс або документ (404)")
+                throw NetworkError.serverError("The server cannot find the requested resource or document (404)")
             case 500:
-                throw NetworkError.serverError("Внутрішня помилка сервера (500)")
+                throw NetworkError.serverError("Internal server error (500)")
             default:
-                throw NetworkError.serverError("Невідома помилка: \(httpResponse.statusCode)")
+                throw NetworkError.serverError("Unknown error: \(httpResponse.statusCode)")
 
         }
         
@@ -96,7 +96,7 @@ class NetworkService {
             let gameDetails = try JSONDecoder().decode(GameDetails.self, from: data)
             return gameDetails
         } catch {
-            print("Помилка декодування: \(error)")
+            print("Decoding error: \(error)")
             throw NetworkError.decodingError
         }
     }

@@ -18,7 +18,6 @@
 		2393254C2EC7106B007C84F4 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393254B2EC7106B007C84F4 /* APIResponse.swift */; };
 		239325502EC710F8007C84F4 /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393254F2EC710F8007C84F4 /* GameListViewModel.swift */; };
 		239325522EC71116007C84F4 /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325512EC71116007C84F4 /* GameDetailViewModel.swift */; };
-		239325542EC7113E007C84F4 /* MyCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325532EC7113E007C84F4 /* MyCollectionViewModel.swift */; };
 		239325572EC711F5007C84F4 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325562EC711F5007C84F4 /* GameListView.swift */; };
 		239325592EC71213007C84F4 /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239325582EC71213007C84F4 /* GameDetailView.swift */; };
 		2393255B2EC71238007C84F4 /* MyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393255A2EC71238007C84F4 /* MyCollectionView.swift */; };
@@ -44,7 +43,6 @@
 		2393254B2EC7106B007C84F4 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		2393254F2EC710F8007C84F4 /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
 		239325512EC71116007C84F4 /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
-		239325532EC7113E007C84F4 /* MyCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewModel.swift; sourceTree = "<group>"; };
 		239325562EC711F5007C84F4 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
 		239325582EC71213007C84F4 /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 		2393255A2EC71238007C84F4 /* MyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionView.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			children = (
 				2393254F2EC710F8007C84F4 /* GameListViewModel.swift */,
 				239325512EC71116007C84F4 /* GameDetailViewModel.swift */,
-				239325532EC7113E007C84F4 /* MyCollectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -256,7 +253,6 @@
 				239325702EC71673007C84F4 /* PhotoLibraryService.swift in Sources */,
 				2393254A2EC71055007C84F4 /* Genre.swift in Sources */,
 				2393256C2EC71658007C84F4 /* NetworkService.swift in Sources */,
-				239325542EC7113E007C84F4 /* MyCollectionViewModel.swift in Sources */,
 				239325592EC71213007C84F4 /* GameDetailView.swift in Sources */,
 				2393254C2EC7106B007C84F4 /* APIResponse.swift in Sources */,
 			);
